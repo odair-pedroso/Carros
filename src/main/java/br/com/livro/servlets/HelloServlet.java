@@ -20,8 +20,17 @@ public class HelloServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
 		
-		response.getWriter().print("Olá mundo servlet");
+		System.out.println("Parametro nome : " + nome);
+		System.out.println("Parametro sobrenome : " + sobrenome);
+		
+		response.getWriter().print("Olá mundo " + nome + " " + sobrenome);
+		
+		
+		
+		
 	}
 
 	
