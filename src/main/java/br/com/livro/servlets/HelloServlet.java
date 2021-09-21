@@ -26,17 +26,32 @@ public class HelloServlet extends HttpServlet {
 		System.out.println("Parametro nome : " + nome);
 		System.out.println("Parametro sobrenome : " + sobrenome);
 		
-		response.getWriter().print("Olá mundo " + nome + " " + sobrenome);
-		
-		
-		
+		response.getWriter().print("Ola mundo " + nome + " " + sobrenome);		
 		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doGet(request, response);
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		
+		System.out.println("Parametro nome : " + nome);
+		System.out.println("Parametro sobrenome : " + sobrenome);
+		
+		response.getWriter().print("Ola mundo POST " + nome + " " + sobrenome);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.getWriter().print("Ola PUT");
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.getWriter().print("Ola DELETE");
 	}
 
 }
